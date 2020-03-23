@@ -1,2 +1,10 @@
+# my gitignore
 *.pyc
 __pycache__
+temp*
+test*
+brain_files/
+*.dump
+
+### Linux ###
+*~
