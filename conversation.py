@@ -2,11 +2,13 @@
 
 import os
 import aiml
+from apis import dictionary
+from apis import quotes
 
 k = None
 
 def initBrain():
-    os.chdir("/home/rikilg/mysite/")
+    # os.chdir("/home/rikilg/mysite/")
     brain_file = "brain_files/brain.dump"
 
     global k
@@ -25,7 +27,20 @@ def botAnswer(query):
     global k
     if k is None:
         initBrain()
-    return k.respond(query)
+    response = k.respond(query)
+    if response[0] != '/': # not a user command
+        return response
+
+    # if user command (for api)
+    response = response[1:].split()
+
+    if response[0] == 'define':
+        if len(response) < 2: return "Define *what*?"
+        return dictionary.define(response[1])
+    elif response[0] == 'quote':
+        return quotes.getQuote()
+
+    return "Looks like a command i'm not sure of!"
 
 
 def main():
