@@ -2,8 +2,8 @@
 # Edit at https://www.gitignore.io/?templates=linux,python,windows,visualstudiocode
 
 ### My Ignore Files ###
-temp
-test
+temp*
+test*
 brain_files/
 *.dump
 

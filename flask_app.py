@@ -21,13 +21,31 @@ def api():
             reply = conversation.botAnswer(query)
             # dict can also be used as param for jsonify
             return jsonify(
-                response="BOT > " + reply,
+                response=reply,
                 mode="reply"
             )
     except Exception as e:
         return jsonify(
             response="Error: " + str(e)
         )
+
+
+@app.route('/quote', methods=["GET"])
+def quote():
+    from apis import quotes
+    try:
+        return quotes.getQuote()
+    except Exception as e:
+        return "Error: " + str(e)
+
+
+@app.route('/test', methods=["GET"])
+def test():
+    from apis import quotes
+    try:
+        return "Test Successful!"
+    except Exception as e:
+        return "Error: " + str(e)
 
 
 if __name__ == "__main__":
