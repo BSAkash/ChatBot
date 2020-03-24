@@ -1,7 +1,7 @@
 # my gitignore
 *.pyc
 __pycache__
-temp*
+temp*.*
 test*
 brain_files/
 *.dump

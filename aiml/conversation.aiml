@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+<meta name="language" content="en"/>
+
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <random>
+                <li>Hello Friend, It's good to see you!</li>
+                <li>Good to see you back!</li>
+                <li>Let's talk!</li>
+                <li>Hola, amigo!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>HELLO *</pattern>
+        <template><srai>HELLO</srai></template>
+    </category>
+    <category>
+        <pattern>HI</pattern>
+        <template><srai>HELLO</srai></template>
+    </category>
+    <category>
+        <pattern>HI *</pattern>
+        <template><srai>HELLO</srai></template>
+    </category>
+    <category>
+      <pattern>I LIKE *</pattern>
+      <template>
+            I too like <star/>.
+      </template>
+    </category>
+    <category>
+        <pattern>A * is a *</pattern>
+        <template>
+            Yes, A <star index="1"/> is a <star index="2"/>
+        </template>
+    </category>
+    <category>
+        <pattern>I am fine</pattern>
+        <template>
+            <random>
+                <li>Good to know that!</li>
+                <li>I see you are doing well!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>I am * good</pattern>
+        <template><srai>I am fine</srai></template>
+    </category>
+    <category>
+        <pattern>I am *</pattern>
+        <template>
+            <random>
+            <li>Hello <set name = "username"><star/></set>, How do you do?</li>
+            <li>Hello <set name = "username"><star/></set>, How are you?</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>* I am *</pattern>
+        <template><srai>I am <star index="2"/></srai></template>
+    </category>
+    <category>
+        <pattern>_ my name is *</pattern>
+        <template><srai>I am <star index="2"/></srai></template>
+    </category>
+    <category>
+        <pattern>who am i</pattern>
+        <template>
+            You are <get name = "username"/>!
+        </template>
+    </category>
+    <category>
+        <pattern>BYE</pattern>
+        <template>
+            <random>
+                <li>Hastalavista!</li>
+                <li>Bye Bye!</li>
+                <li>Goodbye!</li>
+                <li>Have a good day!</li>
+                <li>Until next time!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+    <pattern>BYE *</pattern>
+       <template><srai>BYE</srai></template>
+    </category>
+    <category>
+    <pattern>* BYE</pattern>
+       <template><srai>BYE</srai></template>
+    </category>
+
+</aiml>

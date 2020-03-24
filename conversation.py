@@ -28,6 +28,7 @@ def botAnswer(query):
     if k is None:
         initBrain()
     response = k.respond(query)
+    if response is None or response == "": return 'Can we talk about your favourite subjects?'
     if response[0] != '/': # not a user command
         return response
 
