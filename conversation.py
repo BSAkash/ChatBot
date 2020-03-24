@@ -2,10 +2,12 @@
 
 import os
 import aiml
-from apis import dictionary
 from apis import quotes
+from apis import dictionary
+from database import Database
 
 k = None
+d = None
 
 def initBrain():
     os.chdir("/home/rikilg/mysite/")
@@ -25,10 +27,15 @@ def initBrain():
 
 def botAnswer(query):
     global k
+    global d
     if k is None:
         initBrain()
+    if d is None:
+        d = Database()
+        d.initDB()
     response = k.respond(query)
-    if response is None or response == "": return 'Can we talk about your favourite subjects?'
+    if response is None or response == "": response = "I'm not yet programmed to understand your query!" # custom response
+    d.addToDB(query, response)
     if response[0] != '/': # not a user command
         return response
 

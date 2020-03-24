@@ -5,6 +5,7 @@ temp*.*
 test*
 brain_files/
 *.dump
+*.db
 
 ### Linux ###
 *~
