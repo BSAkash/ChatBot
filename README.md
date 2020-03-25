@@ -37,7 +37,7 @@
 ## About The Project
 
 The aim of this assignment is to create a messenger bot which can provide intelligent dialog 
-conversations with the user,similar to bots like ELIZA or ALICE. The bot uses a knowledge base 
+conversations with the user,similar to bots like ELIZA or Bot. The bot uses a knowledge base 
 built using conversations stored in aiml files.
 
 The main goal of this chatbot is to help students decide on which courses they should take based 
@@ -119,7 +119,7 @@ AiBot-Backend
 
  - Rikil Gajarla - 2017A7PS0202H
  - Naga Sai Bharath - 2017A7PS02XXH
- - Akash Bonagiri - 2017XXPSXXXXH
+ - Akash Bonagiri - 2017AAPS0455H
 
 Project Link: [https://github.com/RikilG/AiBot-Backend](https://github.com/RikilG/AiBot-Backend)
 
