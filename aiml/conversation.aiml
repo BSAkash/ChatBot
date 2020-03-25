@@ -21,10 +21,10 @@
         <pattern>HI</pattern>
         <template><srai>HELLO</srai></template>
     </category>
-    <category>
+    <!-- <category>
         <pattern>HI *</pattern>
         <template><srai>HELLO</srai></template>
-    </category>
+    </category> -->
     <category>
       <pattern>I LIKE *</pattern>
       <template>
@@ -60,15 +60,15 @@
         </template>
     </category>
     <category>
-        <pattern>* I am *</pattern>
-        <template><srai>I am <star index="2"/></srai></template>
+        <pattern>_ I am *</pattern>
+        <template><srai>I am <star/></srai></template>
     </category>
     <category>
-        <pattern>_ my name is *</pattern>
-        <template><srai>I am <star index="2"/></srai></template>
+        <pattern>MY NAME IS *</pattern>
+        <template><srai>I am <star/></srai></template>
     </category>
     <category>
-        <pattern>who am i</pattern>
+        <pattern>WHO AM I</pattern>
         <template>
             You are <get name = "username"/>!
         </template>

@@ -57,11 +57,11 @@ def botAnswer(query):
 def main():
     global k
     while True:
-        reply = botAnswer(input("BOT > "))
-        if reply:
-            print("BOT > ", reply)
-        else:
-            print("BOT > :) ", )
+        reply = botAnswer(input("USER > "))
+        if 'bye' in reply:
+            print('BOT > ', reply)
+            return;
+        print("BOT > ", reply)
 
 
 if __name__ == "__main__":

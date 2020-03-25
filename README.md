@@ -127,5 +127,6 @@ Project Link: [https://github.com/RikilG/AiBot-Backend](https://github.com/Rikil
 ## References
 
  - [alice](https://github.com/mz026/aiml-en-us-foundation-alice.v1-0)
+ - [aiml - reference](http://callmom.pandorabots.com/static/reference/)
  - [aiml - a brief tutorial](https://arxiv.org/abs/1307.3091)
  - [aiml - tutorialspoint](https://www.tutorialspoint.com/aiml/aiml_introduction.htm)

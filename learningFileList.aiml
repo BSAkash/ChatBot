@@ -3,9 +3,20 @@
         <pattern>LEARN AIML</pattern>
         <template>
             <!-- Load standard AIML set -->
+            <learn>aiml/ai.aiml</learn>
+            <learn>aiml/alice.aiml</learn>
+            <learn>aiml/bot_profile.aiml</learn>
+            <learn>aiml/bot.aiml</learn>
             <learn>aiml/conversation.aiml</learn>
+            <learn>aiml/datetime.aiml</learn>
             <learn>aiml/dictionary.aiml</learn>
+            <learn>aiml/general.aiml</learn>
+            <learn>aiml/inquiry.aiml</learn>
+            <learn>aiml/personality.aiml</learn>
             <learn>aiml/quote.aiml</learn>
+            <learn>aiml/stack.aiml</learn>
+            <learn>aiml/update.aiml</learn>
+            <learn>aiml/xfind.aiml</learn>
         </template>
     </category>
 </aiml>

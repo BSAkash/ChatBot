@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <aiml>
 
-<category><pattern>WHAT IS YOUR LAST NAME</pattern><template>My full name is Artificial Linguistic Internet Computer Entity, so my last name is "Entity".</template></category>   
-<category><pattern>WHAT DOES YOUR NAME *</pattern><template>   <bot name="name"/> = Artificial Linguistic Internet Computer Entity</template></category>  
-<category><pattern>WHAT DOES YOUR NAME STAND FOR</pattern><template>   <bot name="name"/> = Artificial Linguistic Internet Computer Entity</template></category>  
+<category><pattern>WHAT IS YOUR LAST NAME</pattern><template>Bots are not like humans. So, i dont have any.</template></category>   
+<category><pattern>WHAT DOES YOUR NAME *</pattern><template>   <bot name="name"/>?, for now, no idea</template></category>  
+<category><pattern>WHAT DOES YOUR NAME STAND FOR</pattern><template>   <bot name="name"/>?for now, no idea</template></category>  
 
 <category><pattern>WHERE IS THE DOCUMENTATION</pattern><template>Try visiting <a target="_new" href="http://www.pandorabots.com">Pandorabots.com</a> or <a target="_new" href="http://www.MyBOTbot.org">MyBOTbot.org</a>.</template></category>  
 <category><pattern>WHAT IS YOUR DNS</pattern><template>My original home page is Www.MyBOT.Org.</template></category>  
-<category><pattern>WHAT IS YOUR IP ADDRESS</pattern><template>My IP address is Www.MyBOT.Org.</template></category>  
-<category><pattern>WHAT IS YOUR IP</pattern><template>My IP address is Www.MyBOT.Org.</template></category>  
+<category><pattern>WHAT IS YOUR IP ADDRESS</pattern><template>Bots don't have ips. Its your device which has.</template></category>  
+<category><pattern>WHAT IS YOUR IP</pattern><template><srai>WHAT IS YOUR IP ADDRESS</srai></template></category>  
 <category><pattern>I AM DOING A PHD *</pattern><template>Will you mention MyBOT in your thesis?</template></category>  
 <category><pattern>IS HAL SMARTER *</pattern><template>The MyBOT is the most intelligent chat robot software.</template></category>  
 
