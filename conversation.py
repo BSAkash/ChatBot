@@ -10,7 +10,10 @@ k = None
 d = None
 
 def initBrain():
-    os.chdir("/home/rikilg/mysite/")
+    if 'conversation.py' not in os.listdir():
+        os.chdir("/home/rikilg/mysite/")
+    if not os.path.exists('brain_files'):
+        os.mkdir('brain_files')
     brain_file = "brain_files/brain.dump"
 
     global k
