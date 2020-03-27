@@ -68,7 +68,7 @@ This project requires the following:
 This is an example list of dependencies present/used in the project
  - [flask](https://palletsprojects.com/p/flask/)
  - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
- - [aiml](https://pypi.org/project/aiml/)
+ - [python-aiml](https://pypi.org/project/python-aiml/)
 
 ### Installation
  
@@ -105,9 +105,9 @@ AiBot-Backend
   │   └── quotes.py
   ├── templates   # files served by the flask server 
   │   └── main_page.html
+  ├── databases   # folder to store database files 
   ├── conversation.py # main bot file which abstracts the underlying aiml interaction
   ├── database.py # python module to interact with the stored database
-  ├── database.db # database which stores user interactions
   ├── flask_app.py # main file used to run flask server
   ├── learningFileList.aiml # main aiml file which loads all other aiml files
   ├── README.md   # this README file

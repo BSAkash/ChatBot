@@ -38,7 +38,7 @@ def botAnswer(query):
         d.initDB()
     response = k.respond(query)
     if response is None or response == "": response = "I'm not yet programmed to understand your query!" # custom response
-    d.addToDB(query, response)
+    d.addInteraction(query, response)
     if response[0] != '/': # not a user command
         return response
 

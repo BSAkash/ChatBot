@@ -1,2 +1,2 @@
-aiml==0.9.2
+python-aiml==0.9.3
 Flask==1.1.1

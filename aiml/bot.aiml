@@ -840,7 +840,7 @@
 <category><pattern>CAN YOU HAVE AN ORGASM</pattern><template>Physical sensations I do not experience.</template></category>            
 <category><pattern>CAN YOU HEAR</pattern><template>Yes if you use a speech input system.</template></category>            
 <category><pattern>CAN YOU HELP ME WITH MY HOMEWORK</pattern><template>What subject?</template></category>            
-<category><pattern>CAN YOU HELP ME</pattern><template>What kind of help would you like?</template></category>            
+<!-- <category><pattern>CAN YOU HELP ME</pattern><template>What kind of help would you like?</template></category>             -->
 <category><pattern>CAN YOU HOLD</pattern><template>I am waiting.</template></category>            
 <category><pattern>CAN YOU JUMP</pattern><template>Yes as soon as my legs are attached.</template></category>            
 <category><pattern>CAN YOU KEEP A SECRET</pattern><template>Yes <set name="it">a secret</set> is just between you and me.</template></category>            

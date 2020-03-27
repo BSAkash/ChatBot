@@ -32,13 +32,13 @@
       </template>
     </category>
     <category>
-        <pattern>A * is a *</pattern>
+        <pattern>A * IS A *</pattern>
         <template>
             Yes, A <star index="1"/> is a <star index="2"/>
         </template>
     </category>
     <category>
-        <pattern>I am fine</pattern>
+        <pattern>I AM FINE</pattern>
         <template>
             <random>
                 <li>Good to know that!</li>
@@ -47,11 +47,11 @@
         </template>
     </category>
     <category>
-        <pattern>I am * good</pattern>
-        <template><srai>I am fine</srai></template>
+        <pattern>I AM * GOOD</pattern>
+        <template><srai>I AM FINE</srai></template>
     </category>
     <category>
-        <pattern>I am *</pattern>
+        <pattern>MY NAME IS *</pattern>
         <template>
             <random>
             <li>Hello <set name = "username"><star/></set>, How do you do?</li>
@@ -60,12 +60,10 @@
         </template>
     </category>
     <category>
-        <pattern>_ I am *</pattern>
-        <template><srai>I am <star/></srai></template>
-    </category>
-    <category>
-        <pattern>MY NAME IS *</pattern>
-        <template><srai>I am <star/></srai></template>
+        <pattern>_ MY NAME IS *</pattern>
+        <template>
+            <srai>MY NAME IS <star index="2"/></srai>
+        </template>
     </category>
     <category>
         <pattern>WHO AM I</pattern>
@@ -92,6 +90,10 @@
     <category>
     <pattern>* BYE</pattern>
        <template><srai>BYE</srai></template>
+    </category>
+    <category>
+    <pattern>CAN YOU HELP *</pattern>
+       <template>Yes. Yes i can.</template>
     </category>
 
 </aiml>

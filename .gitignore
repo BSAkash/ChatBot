@@ -6,6 +6,7 @@ test*
 brain_files/
 *.dump
 *.db
+!corpus.db
 
 ### Linux ###
 *~
