@@ -1,6 +1,7 @@
 #!/bin/python3
 
 import os
+import re
 import aiml
 from apis import quotes
 from apis import dictionary
@@ -8,6 +9,8 @@ from database import Database
 
 k = None
 d = None
+domain = None
+prof = None
 
 def initBrain():
     if 'conversation.py' not in os.listdir():
@@ -22,34 +25,69 @@ def initBrain():
     if os.path.exists(brain_file):
         print("Loading brain file: " + brain_file)
         k.loadBrain(brain_file)
-    else:
-        k.bootstrap(learnFiles="learningFileList.aiml", commands="LEARN AIML")
-        print("Saving brain file: " + brain_file)
-        k.saveBrain(brain_file)
+        return
+    # else:
+    k.bootstrap(learnFiles="learningFileList.aiml", commands="LEARN AIML")
+    print("Saving brain file: " + brain_file)
+    k.saveBrain(brain_file)
 
+
+def suggestCourse(query):
+    global prof
+    global domain
+    if len(query) > 2:
+        query[1] = ' '.join(query[1:])
+    if query[0] == 'professor':
+        query[1] = query[1].replace('.', ' ')
+        if not d.exists(query[0], query[1]):
+            return "No such professor exists in my database."
+        prof = query[1]
+        return ""
+    elif query[0] == 'domain':
+        if not d.exists(query[0], query[1]):
+            return "No such domain exists in my database."
+        domain = query[1]
+        return ""
+    elif query[0] == 'done':
+        if prof is not None or domain is not None:
+            course = d.getCourses(prof, domain)
+            return course[0][0]
+    elif query[0] == 'list-courses-domain':
+        l = d.getCourses(domain=domain)
+        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+    elif query[0] == 'list-courses-prof':
+        l = d.getCourses(prof=prof)
+        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+    elif query[0] == 'list-all':
+        l = d.getCourses()
+        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+    
 
 def botAnswer(query):
     global k
     global d
-    if k is None:
-        initBrain()
     if d is None:
         d = Database()
         d.initDB()
+    if k is None:
+        initBrain()
     response = k.respond(query)
     if response is None or response == "": response = "I'm not yet programmed to understand your query!" # custom response
     d.addInteraction(query, response)
-    if response[0] != '/': # not a user command
+    m = re.match('/\{(.*)\}(.*)', response)
+    if m is None: # no command found
         return response
+    # else: # command found
+    command = m.groups()[0].strip().split()
+    response = m.groups()[1].strip()
 
-    # if user command (for api)
-    response = response[1:].split()
-
-    if response[0] == 'define':
-        if len(response) < 2: return "Define *what*?"
-        return dictionary.define(response[1])
-    elif response[0] == 'quote':
+    if command[0] == 'define':
+        if len(command) < 2: return "Define *what*?"
+        return dictionary.define(command[1])
+    elif command[0] == 'quote':
         return quotes.getQuote()
+    elif command[0] == 'corpus':
+        return suggestCourse(command[1:]) + response
 
     return "Looks like a command i'm not sure of!"
 

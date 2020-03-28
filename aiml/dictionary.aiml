@@ -5,7 +5,7 @@
     <category>
         <pattern>DEFINE *</pattern>
         <template>
-            /define <star/>
+            /{define <star/>}
         </template>
     </category>
     <category>

@@ -1,11 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <aiml version="1.0">
     <category>
         <pattern>LEARN AIML</pattern>
         <template>
-            <!-- Load Bot specific files first-->
+            <!-- Load Bot specific files -->
             <learn>aiml/conversation.aiml</learn>
+            <learn>aiml/courseSelection.aiml</learn>
+
+            <!-- Load API specific files -->
             <learn>aiml/dictionary.aiml</learn>
             <learn>aiml/quote.aiml</learn>
+
             <!-- Load alice bot files for normal interaction -->
             <learn>aiml/ai.aiml</learn>
             <learn>aiml/alice.aiml</learn>

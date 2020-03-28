@@ -62,6 +62,7 @@ To get a local copy up and running follow these simple steps.
 
 This project requires the following:
  - [python3](https://www.python.org/)
+ - [sqlite3](https://www.sqlite.org/)(optional, to check/modify databases)
 
 ### Dependencies
 
@@ -130,3 +131,4 @@ Project Link: [https://github.com/RikilG/AiBot-Backend](https://github.com/Rikil
  - [aiml - reference](http://callmom.pandorabots.com/static/reference/)
  - [aiml - a brief tutorial](https://arxiv.org/abs/1307.3091)
  - [aiml - tutorialspoint](https://www.tutorialspoint.com/aiml/aiml_introduction.htm)
+ - [aiml - example files](https://github.com/pandorabots/Free-AIML)

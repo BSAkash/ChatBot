@@ -3,21 +3,21 @@
 <meta name="language" content="en"/>
 
     <category>
-        <pattern>quote</pattern>
+        <pattern>QUOTE</pattern>
         <template>
-            /quote
+            /{quote}
         </template>
     </category>
     <category>
         <pattern>quote of the day</pattern>
         <template>
-            /quote
+            <srai>QUOTE</srai>
         </template>
     </category>
     <category>
         <pattern>* quote</pattern>
         <template>
-            /quote
+            <srai>QUOTE</srai>
         </template>
     </category>
 

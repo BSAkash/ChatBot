@@ -91,9 +91,5 @@
     <pattern>* BYE</pattern>
        <template><srai>BYE</srai></template>
     </category>
-    <category>
-    <pattern>CAN YOU HELP *</pattern>
-       <template>Yes. Yes i can.</template>
-    </category>
 
 </aiml>
