@@ -72,6 +72,15 @@
         </template>
     </category>
     <category>
+        <pattern>HELP</pattern>
+        <template>
+            <srai>WHAT CAN YOU DO</srai>
+        </template>
+    </category>
+    <category><pattern>_ HELP</pattern><template><srai>HELP</srai></template></category>
+    <category><pattern>HELP *</pattern><template><srai>HELP</srai></template></category>
+    <category><pattern>_ HELP *</pattern><template><srai>HELP</srai></template></category>
+    <category>
         <pattern>BYE</pattern>
         <template>
             <random>
@@ -88,8 +97,30 @@
        <template><srai>BYE</srai></template>
     </category>
     <category>
-    <pattern>* BYE</pattern>
-       <template><srai>BYE</srai></template>
+        <pattern>* BYE</pattern>
+        <template><srai>BYE</srai></template>
     </category>
+    <category>
+        <pattern>YES</pattern>
+        <template>
+            I don't remember asking you a question!
+        </template>
+    </category>
+    <category>
+        <pattern>NO</pattern>
+        <template>
+            I don't remember asking you a question!
+        </template>
+    </category>
+    <category>
+        <pattern>THANKS</pattern>
+        <template>
+            <random>
+                <li>you're welcome</li>
+                <li>thank you for using my services</li>
+            </random>
+        </template>
+    </category>
+    <category><pattern>THANK YOU</pattern><template><srai>THANKS</srai></template></category>
 
 </aiml>

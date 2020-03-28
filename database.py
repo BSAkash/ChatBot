@@ -16,8 +16,8 @@ class Database:
         # connect to interactions database
         self.conn = sqlite3.connect('databases/interactions.db')
         self.cur = self.conn.cursor()
-        self.cur.execute('''CREATE TABLE IF NOT EXISTS bot_vars(name TEXT, value INT);''')
-        self.cur.execute('''CREATE TABLE IF NOT EXISTS user_session(query TEXT, response TEXT, time INT);''')
+        self.cur.execute("CREATE TABLE IF NOT EXISTS bot_vars(name TEXT, value INT);")
+        self.cur.execute("CREATE TABLE IF NOT EXISTS user_session(query TEXT, response TEXT, time INT);")
         self.conn.commit()
         # connect to corpus database
         if not os.path.exists('databases/corpus.db'):
@@ -27,7 +27,7 @@ class Database:
 
 
     def addInteraction(self, query, response):
-        self.cur.execute('''INSERT INTO user_session values (?, ?, ?);''', [query, response, int(time())])
+        self.cur.execute("INSERT INTO user_session values (?, ?, ?);", [query, response, int(time())])
         self.conn.commit()
     
 
@@ -36,13 +36,13 @@ class Database:
         if course: course = course.lower().title()
         cur2 = self.cur2
         if domain is None and course is None:
-            cur2.execute('''SELECT professor FROM corpus;''')
+            cur2.execute("SELECT professor FROM corpus;")
         elif domain is None and course is not None:
-            cur2.execute('''SELECT professor FROM corpus WHERE course=?;''', [course])
+            cur2.execute("SELECT professor FROM corpus WHERE course=?;", [course])
         elif domain is not None and course is None:
-            cur2.execute('''SELECT professor FROM corpus WHERE domain=?;''', [domain])
+            cur2.execute("SELECT professor FROM corpus WHERE domain=?;", [domain])
         else: # both are given
-            cur2.execute('''SELECT professor FROM corpus WHERE domain=? and course=?;''', [domain, course])
+            cur2.execute("SELECT professor FROM corpus WHERE domain=? and course=?;", [domain, course])
         return list(cur2.fetchall())
     
     def getDomains(self, prof=None, course=None):
@@ -50,13 +50,13 @@ class Database:
         if course: course = course.lower().title()
         cur2 = self.cur2
         if domain is None and course is None:
-            cur2.execute('''SELECT distinct(domain) FROM corpus;''')
+            cur2.execute("SELECT distinct(domain) FROM corpus;")
         elif domain is None and course is not None:
-            cur2.execute('''SELECT domain FROM corpus WHERE course=?;''', [course])
+            cur2.execute("SELECT domain FROM corpus WHERE course=?;", [course])
         elif domain is not None and course is None:
-            cur2.execute('''SELECT domain FROM corpus WHERE professor=?;''', [prof])
+            cur2.execute("SELECT domain FROM corpus WHERE professor LIKE '%"+prof+"%';")
         else: # both are given
-            cur2.execute('''SELECT professor FROM corpus WHERE professor=? and course=?;''', [prof, course])
+            cur2.execute("SELECT professor FROM corpus WHERE professor LIKE '%"+prof+"%' and course=?;", [course])
         return list(cur2.fetchall())
     
     def getCourses(self, prof=None, domain=None):
@@ -64,26 +64,28 @@ class Database:
         if domain: domain = domain.lower().title()
         cur2 = self.cur2
         if domain is None and prof is None:
-            cur2.execute('''SELECT course FROM corpus;''')
+            cur2.execute("SELECT course FROM corpus;")
         elif domain is None and prof is not None:
-            cur2.execute('''SELECT course FROM corpus WHERE professor=?;''', [prof])
+            cur2.execute("SELECT course FROM corpus WHERE professor LIKE '%"+prof+"%';")
         elif domain is not None and prof is None:
-            cur2.execute('''SELECT course FROM corpus WHERE domain=?;''', [domain])
+            cur2.execute("SELECT course FROM corpus WHERE domain=?;", [domain])
         else: # both are given
-            cur2.execute('''SELECT course FROM corpus WHERE domain=? and professor=?;''', [domain, prof])
+            cur2.execute("SELECT course FROM corpus WHERE domain=? and professor LIKE '%"+prof+"%';", [domain])
         return list(cur2.fetchall())
     
     def getAliases(self, domain):
         if domain: domain = domain.lower().title()
         cur2 = self.cur2
-        cur2.execute('''SELECT alias FROM aliases WHERE domain=?;''',[domain])
+        cur2.execute("SELECT alias FROM aliases WHERE domain=?;",[domain])
         return cur2.fetchone()[0].split(',')
 
     def exists(self, item, value):
         value = value.lower().title()
-        item = item.lower().title()
         cur2 = self.cur2
-        cur2.execute("SELECT "+item+" FROM corpus WHERE "+item+"='"+value+"';")
+        if item == 'professor':
+            cur2.execute("SELECT professor FROM corpus WHERE professor LIKE'%"+value+"%';")
+        else:
+            cur2.execute("SELECT "+item+" FROM corpus WHERE "+item+"='"+value+"';")
         x = cur2.fetchall()
         if len(x) > 0: return True
         else: return False

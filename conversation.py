@@ -51,7 +51,7 @@ def suggestCourse(query):
     elif query[0] == 'done':
         if prof is not None or domain is not None:
             course = d.getCourses(prof, domain)
-            return course[0][0]
+            return course[0][0] + ". "
     elif query[0] == 'list-courses-domain':
         l = d.getCourses(domain=domain)
         return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
