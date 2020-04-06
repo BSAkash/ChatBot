@@ -33,6 +33,8 @@ def initBrain():
 
 
 def suggestCourse(query):
+    print("printing query###############")
+    print(query)
     global prof
     global domain
     if len(query) > 2:
@@ -61,7 +63,13 @@ def suggestCourse(query):
     elif query[0] == 'list-all':
         l = d.getCourses()
         return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
-    
+    elif query[0] == 'list-profs-domain':
+        l = d.getProfs(domain=domain)
+        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+    elif query[0] == "list-all-domains":
+        l = d.getDomains()
+        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+
 
 def botAnswer(query):
     global k
@@ -72,6 +80,8 @@ def botAnswer(query):
     if k is None:
         initBrain()
     response = k.respond(query)
+    print("Printing response********************") 
+    print(response)
     if response is None or response == "": response = "I'm not yet programmed to understand your query!" # custom response
     d.addInteraction(query, response)
     m = re.match('/\{(.*)\}(.*)', response)
@@ -87,7 +97,10 @@ def botAnswer(query):
     elif command[0] == 'quote':
         return quotes.getQuote()
     elif command[0] == 'corpus':
-        return suggestCourse(command[1:]) + response
+        profReply = suggestCourse(command[1:])
+        if profReply == "No such professor exists in my database.":
+            return "We didn't find a professor with the given name. Please check if there is a spelling mistake. please try Professor name again"
+        return  profReply + response
 
     return "Looks like a command i'm not sure of!"
 

@@ -49,11 +49,11 @@ class Database:
         if prof: prof = prof.lower().title()
         if course: course = course.lower().title()
         cur2 = self.cur2
-        if domain is None and course is None:
+        if prof is None and course is None:
             cur2.execute("SELECT distinct(domain) FROM corpus;")
-        elif domain is None and course is not None:
+        elif prof is None and course is not None:
             cur2.execute("SELECT domain FROM corpus WHERE course=?;", [course])
-        elif domain is not None and course is None:
+        elif prof is not None and course is None:
             cur2.execute("SELECT domain FROM corpus WHERE professor LIKE '%"+prof+"%';")
         else: # both are given
             cur2.execute("SELECT professor FROM corpus WHERE professor LIKE '%"+prof+"%' and course=?;", [course])

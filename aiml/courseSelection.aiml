@@ -6,17 +6,29 @@
     <pattern>WHAT CAN YOU DO</pattern>
     <template>
         I can help you to select your electives based on your intrests. 
-        So, do you need help in selecting electives? (yes/no)
+        So, do you need help in selecting electives? (YES or NO)
     </template>
 </category>
 <category>
-    <pattern>CHOOSE ELECTIVES</pattern>
+    <pattern>YES</pattern>
+    <that>* YES OR NO</that>
     <template>
-        Thats Great! So I'll be asking you a few questions and based on that, 
-        we will figure out the courses you are intrested in. <br/>
-        <srai>DOMAIN INTEREST</srai>
+        <srai>CHOOSE ELECTIVES</srai>
     </template>
 </category>
+<category>
+    <pattern>NO</pattern>
+    <that>* YES OR NO</that>
+    <template>
+        Oh! that's bad. No, Problem. I have many skills to interact with you. I have functionalities like
+        Take Personality Test
+        Get Quotes
+        Get Date and Time
+        Act as a Dictionary
+        etc.
+    </template>
+</category>
+
 <category><pattern>_ HELP ME * ELECTIVES</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
 <category><pattern>_ HELP ME * COURSES</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
 <category><pattern>CAN * COURSES</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
@@ -27,69 +39,170 @@
 <category><pattern>_ ADVICE</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
 <category><pattern>ADVICE *</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
 <category><pattern>_ ADVICE *</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+
+<category>
+    <pattern>CHOOSE ELECTIVES</pattern>
+    <template>
+        <!-- <think><set name="topic">DOMAININTEREST</set></think> -->
+        Thats Great! So I'll be asking you a few questions and based on that, 
+        we will figure out the courses you might be intrested in. <br/>  
+        <srai>DOMAIN INTEREST</srai>
+    </template> 
+</category>
+
 <category>
     <pattern>DOMAIN INTEREST</pattern>
     <template>
-        Do you have a domain interest? if yes, what domain is it? (domain/no)
+        Do you have a domain interest? if yes, what domain is it? (Domain or No)
     </template>
 </category>
 <category>
-    <pattern>DOMAIN SELECTED *</pattern>
-    <that>* WHAT DOMAIN IS IT *</that>
+    <pattern>YES</pattern>
+    <that>* DOMAIN OR NO</that>
     <template>
-        <think><set name="domain_selected">yes</set></think>
-        /{corpus domain <star/>} Ok. so <star/> it is.
+        So, what domain is it? (Domain or No)
+    </template>
+</category>
+<category>
+    <pattern>NO</pattern>
+    <that>* DOMAIN OR NO</that>
+    <template>
+        <think><set name="domain_selected">no</set></think>
         <srai>PROFESSOR INTEREST</srai>
     </template>
 </category>
 
-<category><pattern>CS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
-<category><pattern>IT</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
-<category><pattern>CSE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
-<category><pattern>COMPUTER SCIENCE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
-<category><pattern>ECO</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
-<category><pattern>FINANCE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
-<category><pattern>ECONOMICS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
-<category><pattern>MECH</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MECHANICAL</srai></template></category>
-<category><pattern>MECHANICAL</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MECHANICAL</srai></template></category>
-<category><pattern>EEE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
-<category><pattern>ECE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
-<category><pattern>ENI</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
-<category><pattern>ENI</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
-<category><pattern>ELECTRICAL</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
-<category><pattern>ELECTRONICSno</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
-<category><pattern>PHOENIX</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
-<category><pattern>BIO</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED BIOLOGY</srai></template></category>
-<category><pattern>BIOLOGY</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED BIOLOGY</srai></template></category>
-<category><pattern>PHARMA</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHARMACY</srai></template></category>
-<category><pattern>PHARMACY</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHARMACY</srai></template></category>
-<category><pattern>PHY</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHYSICS</srai></template></category>
-<category><pattern>PHYSICS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHYSICS</srai></template></category>
-<category><pattern>MATH</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
-<category><pattern>MATHS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
-<category><pattern>MATHEMATICS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
-<category><pattern>HUMANITIES</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED HUMANITIES</srai></template></category>
+Below category is for listing all domains
+<category>
+    <pattern>* LIST * DOMAINS *</pattern>
+    <that>* DOMAIN OR NO</that>
+    <template>
+        /{corpus list-all-domains} Do you have interst in any of these domains? (Domain or No)
+    </template>
+</category>
+
+<category>
+    <pattern>* LIST * DOMAINS</pattern>    
+    <that>* DOMAIN OR NO</that>
+    <template><srai>* LIST * DOMAINS *</srai></template>
+</category>
+
+<category><pattern>CS</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
+<category><pattern>IT</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
+<category><pattern>CSE</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
+<category><pattern>COMPUTER SCIENCE</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
+<category><pattern>ECO</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
+<category><pattern>FINANCE</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
+<category><pattern>ECONOMICS</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
+<category><pattern>MECH</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED MECHANICAL</srai></template></category>
+<category><pattern>MECHANICAL</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED MECHANICAL</srai></template></category>
+<category><pattern>EEE</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ECE</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ENI</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ENI</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ELECTRICAL</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ELECTRONICSno</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>PHOENIX</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>BIO</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED BIOLOGY</srai></template></category>
+<category><pattern>BIOLOGY</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED BIOLOGY</srai></template></category>
+<category><pattern>PHARMA</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHARMACY</srai></template></category>
+<category><pattern>PHARMACY</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHARMACY</srai></template></category>
+<category><pattern>PHY</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHYSICS</srai></template></category>
+<category><pattern>PHYSICS</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED PHYSICS</srai></template></category>
+<category><pattern>MATH</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
+<category><pattern>MATHS</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
+<category><pattern>MATHEMATICS</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
+<category><pattern>HUMANITIES</pattern><that>* DOMAIN OR NO</that><template><srai>DOMAIN SELECTED HUMANITIES</srai></template></category>
+
+    <category>
+    <pattern>DOMAIN SELECTED *</pattern>
+    <template>
+        <think><set name="domain_selected">yes</set></think>
+        /{corpus domain <star index="1"/>} Ok. so <star index="1"/> it is.
+        <srai>PROFESSOR INTEREST</srai>
+    </template>
+</category>
+
+Below Category is for taking i/p - user enters domain name
+<category>
+    <pattern>*</pattern>
+    <that>* DOMAIN OR NO</that>
+    <template>
+        This domain is not present in our database. Please try another or check if you have writtern wrong (Domain or No)
+    </template>
+</category>
 
 <category>
     <pattern>PROFESSOR INTEREST</pattern>
     <template>
-        Do you have preferred professor? if yes, who is it? (prof name/no)
+        Do you have preferred professor? if yes, who is it? (Prof Name or No)
+    </template>
+</category>
+<category>
+    <pattern>YES</pattern>
+    <that>* PROF NAME OR NO</that>
+    <template>
+        So, who is it? (Prof Name or No)
+    </template>
+</category>
+<category>
+    <pattern>NO</pattern>
+    <that>* PROF NAME OR NO</that>
+    <template>
+        <think><set name="prof_selected">no</set></think>
+        <srai>EVAL INTEREST</srai>
+    </template>
+</category>
+
+Below Category is for listing all professors of the selected domain
+<category>
+    <pattern>* LIST * PROFESSORS *</pattern>
+    <that>* PROF NAME OR NO</that>
+    <template>
+        /{corpus list-profs-domain} Do you want to choose the electives offered by any of these Professors? (Prof Name or No)
     </template>
 </category>
 <category>
     <pattern>PROFESSOR SELECTED *</pattern>
     <template>
         <think><set name="prof_selected">yes</set></think>
-        /{corpus professor <star/>} So you have selected <star/> right? (yes/no)
+        /{corpus professor <star/>} So you have selected Prof. <star/> right? (yes/no)
     </template>
 </category>
+
+Below category is for if user has typed the prof name for first time
 <category>
-    <pattern>*</pattern>
-    <that>* WHO IS *</that>
+    <pattern>*</pattern>    
+    <that>* PROF NAME OR NO</that>
     <template>
         <srai>PROFESSOR SELECTED <star/></srai>
     </template>
 </category>
+
+Below category is for if user has typed the prof name for second time
+    <category>
+    <pattern>*</pattern>
+    <that>* SELECTED * RIGHT *</that>
+    <template>
+        <srai>PROFESSOR SELECTED <star/></srai>
+    </template>
+</category>
+
+<category>
+    <pattern>YES</pattern>
+    <that>* SELECTED * RIGHT *</that>
+    <template>
+        <srai>EVAL INTEREST</srai>
+    </template>
+</category>
+<category>
+    <pattern>NO</pattern>
+    <that>* SELECTED * RIGHT *</that>
+    <template>
+        <srai>PROFESSOR INTEREST</srai>
+    </template>
+</category>
+
 <category>
     <pattern>EVAL INTEREST</pattern>
     <template>
@@ -112,66 +225,6 @@
                 institute. Since you have no preferences, this is all i can do.
             </condition>
         </condition>
-    </template>
-</category>
-
-<!-- ALL YES AND NO STUFF -->
-<category>
-    <pattern>YES</pattern>
-    <that>* NEED HELP IN SELECTING ELECTIVES *</that>
-    <template>
-        <srai>CHOOSE ELECTIVES</srai>
-    </template>
-</category>
-<category>
-    <pattern>NO</pattern>
-    <that>* NEED HELP IN SELECTING ELECTIVES *</that>
-    <template>
-        Oh! that's bad. I thought i could help you.
-    </template>
-</category>
-<category>
-    <pattern>YES</pattern>
-    <that>* WHAT DOMAIN IS IT *</that>
-    <template>
-        So, what domain is it? (domain/no)
-    </template>
-</category>
-<category>
-    <pattern>NO</pattern>
-    <that>* WHAT DOMAIN IS IT *</that>
-    <template>
-        <think><set name="domain_selected">no</set></think>
-        <srai>PROFESSOR INTEREST</srai>
-    </template>
-</category>
-<category>
-    <pattern>YES</pattern>
-    <that>* WHO IS *</that>
-    <template>
-        So, who is it? (prof name/no)
-    </template>
-</category>
-<category>
-    <pattern>NO</pattern>
-    <that>* WHO IS *</that>
-    <template>
-        <think><set name="prof_selected">no</set></think>
-        <srai>EVAL INTEREST</srai>
-    </template>
-</category>
-<category>
-    <pattern>YES</pattern>
-    <that>* SELECTED * RIGHT *</that>
-    <template>
-        <srai>EVAL INTEREST</srai>
-    </template>
-</category>
-<category>
-    <pattern>NO</pattern>
-    <that>* SELECTED * RIGHT *</that>
-    <template>
-        <srai>PROFESSOR INTEREST</srai>
     </template>
 </category>
 
