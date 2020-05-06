@@ -36,26 +36,49 @@
 <category>
     <pattern>START ELECTIVE SELECTION</pattern>
     <template>
-        Would you like me to list some popular domains? (yes/no)
+        Would you like me to show a list of popular domains? (yes/no)
     </template>
 </category>
 <category>
     <pattern>YES</pattern>
-    <that>* LIST SOME POPULAR DOMAINS *</that>
+    <that>* LIST OF POPULAR DOMAINS *</that>
     <template>
         /{popular} Theese are some popular fields from which you can 
         choose your domain. Based on these, <srai>DOMAIN INTEREST</srai>
     </template>
 </category>
 <category>
+    <pattern>*</pattern>
+    <that>* LIST OF POPULAR DOMAINS *</that>
+    <template>
+        I don't understand. Should i show a list of popular domains? (yes/no)
+    </template>
+</category>
+<category>
     <pattern>NO</pattern>
-    <that>* LIST SOME POPULAR DOMAINS *</that>
+    <that>* LIST OF POPULAR DOMAINS *</that>
     <template>Ok! we'll continue. <srai>DOMAIN INTEREST</srai></template>
 </category>
 <category>
     <pattern>DOMAIN INTEREST</pattern>
     <template>
-        Do you have a domain interest? if yes, what domain is it? (domain/no)
+        Do you have a domain interest? if yes, what domain is it? (domain/no/show all)
+    </template>
+</category>
+<category>
+    <pattern>SHOW ALL</pattern><that>* WHAT DOMAIN IS IT *</that>
+    <template><srai>SHOW</srai></template>
+</category>
+<category>
+    <pattern>LIST ALL</pattern><that>* WHAT DOMAIN IS IT *</that>
+    <template><srai>SHOW</srai></template>
+</category>
+<category>
+    <pattern>SHOW</pattern>
+    <that>* WHAT DOMAIN IS IT *</that>
+    <template>
+        /{corpus list-all-domains} The above is a list of all available domains.
+        <srai>DOMAIN INTEREST</srai>
     </template>
 </category>
 <category>
@@ -74,7 +97,23 @@
 <category>
     <pattern>PROFESSOR INTEREST</pattern>
     <template>
-        Do you have preferred professor? if yes, who is it? (prof name/no)
+        Do you have preferred professor? if yes, who is it? (prof name/no/show all)
+    </template>
+</category>
+<category>
+    <pattern>SHOW ALL</pattern><that>* WHO IS *</that>
+    <template><srai>SHOW</srai></template>
+</category>
+<category>
+    <pattern>LIST ALL</pattern><that>* WHO IS *</that>
+    <template><srai>SHOW</srai></template>
+</category>
+<category>
+    <pattern>SHOW</pattern>
+    <that>* WHO IS *</that>
+    <template>
+        /{corpus list-profs-domain} The above is a list of all professors. Among them, 
+        <srai>PROFESSOR INTEREST</srai>
     </template>
 </category>
 <category>
@@ -153,7 +192,7 @@
     <pattern>YES</pattern>
     <that>* WHAT DOMAIN IS IT *</that>
     <template>
-        So, what domain is it? (domain/no)
+        So, what domain is it? (domain/no/show all)
     </template>
 </category>
 <category>
@@ -168,14 +207,14 @@
     <pattern>*</pattern>
     <that>* WHAT DOMAIN IS IT *</that>
     <template>
-        I don't understand, what domain is it again? (domain/no)
+        I don't understand, what domain is it again? (domain/no/show all)
     </template>
 </category>
 <category>
     <pattern>YES</pattern>
     <that>* WHO IS *</that>
     <template>
-        So, who is it? (prof name/no)
+        So, who is it? (prof name/no/show all)
     </template>
 </category>
 <category>

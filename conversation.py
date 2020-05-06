@@ -61,6 +61,12 @@ def suggestCourse(query):
     elif query[0] == 'list-all':
         l = d.getCourses()
         return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+    elif query[0] == 'list-profs-domain':
+        l = d.getProfs(domain=domain)
+        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+    elif query[0] == "list-all-domains":
+        l = d.getDomains()
+        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
     
 
 def botAnswer(query):
