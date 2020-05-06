@@ -30,6 +30,10 @@ class Database:
         self.cur.execute("INSERT INTO user_session values (?, ?, ?);", [query, response, int(time())])
         self.conn.commit()
     
+    
+    def listPopular(self):
+        popular = ['Cloud Computing - Computer Science', 'Artificial Intelligence - Computer Science', 'Machine Learning - Computer Science', 'Biotechnology - Biology', 'Internet of Things - Phoenix']
+        return '\n'.join(popular) + '\n'
 
     def getProfs(self, domain=None, course=None):
         if domain: domain = domain.lower().title()

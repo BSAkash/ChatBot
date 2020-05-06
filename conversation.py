@@ -22,10 +22,10 @@ def initBrain():
     global k
     k = aiml.Kernel()
 
-    if os.path.exists(brain_file):
-        print("Loading brain file: " + brain_file)
-        k.loadBrain(brain_file)
-        return
+    # if os.path.exists(brain_file):
+    #     print("Loading brain file: " + brain_file)
+    #     k.loadBrain(brain_file)
+    #     return
     # else:
     k.bootstrap(learnFiles="learningFileList.aiml", commands="LEARN AIML")
     print("Saving brain file: " + brain_file)
@@ -40,12 +40,12 @@ def suggestCourse(query):
     if query[0] == 'professor':
         query[1] = query[1].replace('.', ' ')
         if not d.exists(query[0], query[1]):
-            return "No such professor exists in my database."
+            return "NO PROF IN DB"
         prof = query[1]
-        return ""
+        return "PROF IN DB"
     elif query[0] == 'domain':
         if not d.exists(query[0], query[1]):
-            return "No such domain exists in my database."
+            return "NO DOMAIN IN DB" # will be taken care by AIML
         domain = query[1]
         return ""
     elif query[0] == 'done':
@@ -72,7 +72,7 @@ def botAnswer(query):
     if k is None:
         initBrain()
     response = k.respond(query)
-    if response is None or response == "": response = "I'm not yet programmed to understand your query!" # custom response
+    if response is None or response == "": response = "I'm don't yet understand your query! I am programmed to assist you in your course selection. Type 'help' to know more." # custom response
     d.addInteraction(query, response)
     m = re.match('/\{(.*)\}(.*)', response)
     if m is None: # no command found
@@ -87,19 +87,29 @@ def botAnswer(query):
     elif command[0] == 'quote':
         return quotes.getQuote()
     elif command[0] == 'corpus':
-        return suggestCourse(command[1:]) + response
+        dbResponse = suggestCourse(command[1:])
+        if dbResponse == "NO PROF IN DB":
+            return botAnswer("TRY PROFESSOR AGAIN")
+        elif dbResponse == "PROF IN DB":
+            return botAnswer("EVAL INTEREST")
+        return dbResponse + response
+    elif command[0] == 'popular':
+        return d.listPopular() + response
 
     return "Looks like a command i'm not sure of!"
 
 
 def main():
     global k
-    while True:
-        reply = botAnswer(input("USER > "))
-        if 'bye' in reply:
-            print('BOT > ', reply)
-            return;
-        print("BOT > ", reply)
+    try:
+        while True:
+            reply = botAnswer(input("USER > "))
+            if 'bye' in reply:
+                print('BOT > ', reply)
+                return;
+            print("BOT > ", reply)
+    except KeyboardInterrupt:
+        print("\rUser Exit signal encountered. exiting...")
 
 
 if __name__ == "__main__":

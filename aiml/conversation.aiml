@@ -123,4 +123,11 @@
     </category>
     <category><pattern>THANK YOU</pattern><template><srai>THANKS</srai></template></category>
 
+    <category>
+        <pattern>*</pattern>
+        <template>
+            I'm don't yet understand your query! I am programmed to assist you in your course selection. Type 'help' to know more.
+        </template>
+    </category>
+
 </aiml>
