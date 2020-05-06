@@ -21,6 +21,10 @@
         <pattern>HI</pattern>
         <template><srai>HELLO</srai></template>
     </category>
+    <category>
+        <pattern>HEY</pattern>
+        <template><srai>HELLO!!! Whats up?</srai></template>
+    </category>
     <!-- <category>
         <pattern>HI *</pattern>
         <template><srai>HELLO</srai></template>
