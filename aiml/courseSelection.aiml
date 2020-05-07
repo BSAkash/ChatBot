@@ -253,5 +253,9 @@
 <category><pattern>MATHS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
 <category><pattern>MATHEMATICS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
 <category><pattern>HUMANITIES</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED HUMANITIES</srai></template></category>
+<category><pattern>CIVIL</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED CIVIL</srai></template></category>
+<category><pattern>CHEMICAL</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED CHEMICAL</srai></template></category>
+<category><pattern>CHEM</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED CHEMICAL</srai></template></category>
+<category><pattern>CHEMISTRY</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED CHEMICAL</srai></template></category>
 
 </aiml>

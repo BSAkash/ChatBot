@@ -32,7 +32,7 @@ class Database:
     
     
     def listPopular(self):
-        popular = ['Cloud Computing - Computer Science', 'Artificial Intelligence - Computer Science', 'Machine Learning - Computer Science', 'Biotechnology - Biology', 'Internet of Things - Phoenix']
+        popular = ['Cloud Computing - Domain: Computer Science', 'Artificial Intelligence - Domain: Computer Science', 'Machine Learning - Domain: Computer Science', 'Biotechnology - Domain: Biology', 'Internet of Things - Domain: Phoenix']
         return '\n'.join(popular) + '\n'
 
     def getProfs(self, domain=None, course=None):
@@ -68,13 +68,13 @@ class Database:
         if domain: domain = domain.lower().title()
         cur2 = self.cur2
         if domain is None and prof is None:
-            cur2.execute("SELECT course FROM corpus;")
+            cur2.execute("SELECT course, professor FROM corpus;")
         elif domain is None and prof is not None:
-            cur2.execute("SELECT course FROM corpus WHERE professor LIKE '%"+prof+"%';")
+            cur2.execute("SELECT course, professor FROM corpus WHERE professor LIKE '%"+prof+"%';")
         elif domain is not None and prof is None:
-            cur2.execute("SELECT course FROM corpus WHERE domain=?;", [domain])
+            cur2.execute("SELECT course, professor FROM corpus WHERE domain=?;", [domain])
         else: # both are given
-            cur2.execute("SELECT course FROM corpus WHERE domain=? and professor LIKE '%"+prof+"%';", [domain])
+            cur2.execute("SELECT course, professor FROM corpus WHERE domain=? and professor LIKE '%"+prof+"%';", [domain])
         return list(cur2.fetchall())
     
     def getAliases(self, domain):

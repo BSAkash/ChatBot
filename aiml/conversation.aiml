@@ -58,8 +58,8 @@
         <pattern>MY NAME IS *</pattern>
         <template>
             <random>
-            <li>Hello <set name = "username"><star/></set>, How do you do?</li>
-            <li>Hello <set name = "username"><star/></set>, How are you?</li>
+            <li>Hello <set name = "username"><star/></set>, Good to see you</li>
+            <li>Hello <set name = "username"><star/></set>, I see you are doing well!</li>
             </random>
         </template>
     </category>
@@ -78,6 +78,10 @@
     <category>
         <pattern>HELP</pattern>
         <template>
+            I can:  <br />
+            1) Act as a dictionary if you ask me to define something,<br />
+            2) Motivate you with a daily quote,<br />
+            3) (my primary purpose)<br />
             <srai>WHAT CAN YOU DO</srai>
         </template>
     </category>
@@ -107,13 +111,13 @@
     <category>
         <pattern>YES</pattern>
         <template>
-            I don't remember asking you a question!
+            Ok! I see you agree to something.
         </template>
     </category>
     <category>
         <pattern>NO</pattern>
         <template>
-            I don't remember asking you a question!
+            I see you don't agree to something.
         </template>
     </category>
     <category>
@@ -130,7 +134,7 @@
     <category>
         <pattern>*</pattern>
         <template>
-            I'm don't yet understand your query! I am programmed to assist you in your course selection. Type 'help' to know more.
+            I don't understand you! I am mainly programmed to assist you in your course selection. Type 'help' to know more.
         </template>
     </category>
 

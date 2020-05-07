@@ -9,13 +9,19 @@
         </template>
     </category>
     <category>
-        <pattern>quote of the day</pattern>
+        <pattern>QUOTE OF THE DAY</pattern>
         <template>
             <srai>QUOTE</srai>
         </template>
     </category>
     <category>
-        <pattern>* quote</pattern>
+        <pattern>_ QUOTE</pattern>
+        <template>
+            <srai>QUOTE</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>_ QUOTE *</pattern>
         <template>
             <srai>QUOTE</srai>
         </template>

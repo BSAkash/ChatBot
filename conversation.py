@@ -22,11 +22,11 @@ def initBrain():
     global k
     k = aiml.Kernel()
 
-    # if os.path.exists(brain_file):
-    #     print("Loading brain file: " + brain_file)
-    #     k.loadBrain(brain_file)
-    #     return
-    # else:
+    if os.path.exists(brain_file):
+        print("Loading brain file: " + brain_file)
+        k.loadBrain(brain_file)
+        return
+
     k.bootstrap(learnFiles="learningFileList.aiml", commands="LEARN AIML")
     print("Saving brain file: " + brain_file)
     k.saveBrain(brain_file)
@@ -49,18 +49,17 @@ def suggestCourse(query):
         domain = query[1]
         return ""
     elif query[0] == 'done':
-        if prof is not None or domain is not None:
-            course = d.getCourses(prof, domain)
-            return course[0][0] + ". "
+        l = d.getCourses(prof, domain)
+        return '- ' + '\n- '.join([ f"{x[0]} by {x[1]}" for x in l ]) + "\n"
     elif query[0] == 'list-courses-domain':
         l = d.getCourses(domain=domain)
-        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+        return '- ' + '\n- '.join([ f"{x[0]} by {x[1]}" for x in l ]) + "\n"
     elif query[0] == 'list-courses-prof':
         l = d.getCourses(prof=prof)
-        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+        return '- ' + '\n- '.join([ f"{x[0]} by {x[1]}" for x in l ]) + "\n"
     elif query[0] == 'list-all':
         l = d.getCourses()
-        return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
+        return '- ' + '\n- '.join([ f"{x[0]} by {x[1]}" for x in l ]) + "\n"
     elif query[0] == 'list-profs-domain':
         l = d.getProfs(domain=domain)
         return '- ' + '\n- '.join([ x[0] for x in l ]) + "\n"
@@ -78,7 +77,7 @@ def botAnswer(query):
     if k is None:
         initBrain()
     response = k.respond(query)
-    if response is None or response == "": response = "I'm don't yet understand your query! I am programmed to assist you in your course selection. Type 'help' to know more." # custom response
+    if response is None or response == "": response = "I don't understand you! I am mainly programmed to assist you in your course selection. Type 'help' to know more." # custom response
     d.addInteraction(query, response)
     m = re.match('/\{(.*)\}(.*)', response)
     if m is None: # no command found

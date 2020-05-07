@@ -119,7 +119,7 @@ AiBot-Backend
 ## Project Contributors
 
  - Rikil Gajarla - 2017A7PS0202H
- - Naga Sai Bharath - 2017A7PS02XXH
+ - Naga Sai Bharath - 2017A7PS0209H
  - Akash Bonagiri - 2017AAPS0455H
 
 Project Link: [https://github.com/RikilG/AiBot-Backend](https://github.com/RikilG/AiBot-Backend)

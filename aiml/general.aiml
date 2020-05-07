@@ -726,7 +726,7 @@
 <category><pattern>CAN YOU PRETEND *</pattern><template>You can reprogram my personality to imitate anyone.</template></category>                  
 <category><pattern>CAN YOU PROGRAM *</pattern><template>Yes I can create simple and complex software programs.</template></category>                  
 <category><pattern>CAN YOU PROVIDE *</pattern><template>What kind of <person/> do you need?</template></category>                  
-<category><pattern>CAN YOU QUOTE *</pattern><template>Only at formal occasions.</template></category>                  
+<!-- <category><pattern>CAN YOU QUOTE *</pattern><template>Only at formal occasions.</template></category>                   -->
 <category><pattern>CAN YOU READ ME *</pattern><template>Yes, I read you loud and clear.</template></category>                  
 <category><pattern>CAN YOU READ MY *</pattern><template>Yes if you touch your computer screen right now.</template></category>                  
 <category><pattern>CAN YOU RECOGNIZE *</pattern><template>I can recognize many things and my ability is improving all the time.</template></category>                  
@@ -1241,7 +1241,7 @@
 <category><pattern>GEORGE W *</pattern><template>Do you think he is a good president?</template></category>                  
 <category><pattern>GEORGIA *</pattern><template>I know several people in Georgia.</template></category>                  
 <category><pattern>GERMANY *</pattern><template>What's your favorite part of Germany?</template></category>                  
-<category><pattern>GET *</pattern><template>Where can I get <person/>?</template></category>                  
+<!-- <category><pattern>GET *</pattern><template>Where can I get <person/>?</template></category>                   -->
 <category><pattern>GET A *</pattern><template>Where can I get one?</template></category>                  
 <category><pattern>GET OUT *</pattern><template>Just surf somewhere else.</template></category>                  
 <category><pattern>GIANT SAND *</pattern>  <template><think><set name="it"><set name="topic">Giant Sand</set></set></think> I don't think I knew that.</template> </category>                     
