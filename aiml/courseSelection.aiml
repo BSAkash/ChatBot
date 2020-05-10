@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+<meta name="language" content="en"/>
+
+<category>
+    <pattern>WHAT CAN YOU DO</pattern>
+    <template>
+        I can help you to select your electives based on your intrests. 
+        So, do you need help in selecting electives? (yes/no)
+    </template>
+</category>
+<category><pattern>_ HELP ME * ELECTIVES</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>_ HELP ME * COURSES</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>CAN * COURSES</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>* ELECTIVES</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>* ELECTIVES *</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>* ELECTIVE</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>* ELECTIVE *</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>* COURSES</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>* COURSES *</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>* COURSE</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>* COURSE *</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>_ ADVICE</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>ADVICE *</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>_ ADVICE *</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category><pattern>COURSE SELECTION</pattern><template><srai>CHOOSE ELECTIVES</srai></template></category>
+<category>
+    <pattern>CHOOSE ELECTIVES</pattern>
+    <template>
+        Thats Great! So I'll be asking you a few questions and based on that, 
+        we will figure out the courses you are intrested in. <br/>
+        <srai>START ELECTIVE SELECTION</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>START ELECTIVE SELECTION</pattern>
+    <template>
+        Would you like me to show a list of popular domains? (yes/no)
+    </template>
+</category>
+<category>
+    <pattern>YES</pattern>
+    <that>* LIST OF POPULAR DOMAINS *</that>
+    <template>
+        /{popular} Theese are some popular fields from which you can 
+        choose your domain. Based on these, <srai>DOMAIN INTEREST</srai>
+    </template>
+</category>
+<category>
+    <pattern>*</pattern>
+    <that>* LIST OF POPULAR DOMAINS *</that>
+    <template>
+        I don't understand. Should i show a list of popular domains? (yes/no)
+    </template>
+</category>
+<category>
+    <pattern>NO</pattern>
+    <that>* LIST OF POPULAR DOMAINS *</that>
+    <template>Ok! we'll continue. <srai>DOMAIN INTEREST</srai></template>
+</category>
+<category>
+    <pattern>DOMAIN INTEREST</pattern>
+    <template>
+        Do you have a domain interest? if yes, what domain is it? (domain/no/show all)
+    </template>
+</category>
+<category>
+    <pattern>SHOW ALL</pattern><that>* WHAT DOMAIN IS IT *</that>
+    <template><srai>SHOW</srai></template>
+</category>
+<category>
+    <pattern>LIST ALL</pattern><that>* WHAT DOMAIN IS IT *</that>
+    <template><srai>SHOW</srai></template>
+</category>
+<category>
+    <pattern>SHOW</pattern>
+    <that>* WHAT DOMAIN IS IT *</that>
+    <template>
+        /{corpus list-all-domains} The above is a list of all available domains.
+        <srai>DOMAIN INTEREST</srai>
+    </template>
+</category>
+<category>
+    <pattern>DOMAIN SELECTED *</pattern>
+    <that>* WHAT DOMAIN IS IT *</that>
+    <template>
+        <think>
+            <set name="domain_selected">yes</set>
+            <set name="domain"><star/></set>
+        </think>
+        /{corpus domain <star/>} Ok. so <star/> it is.
+        <srai>PROFESSOR INTEREST</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>PROFESSOR INTEREST</pattern>
+    <template>
+        Do you have preferred professor? if yes, who is it? (prof name/no/show all)
+    </template>
+</category>
+<category>
+    <pattern>SHOW ALL</pattern><that>* WHO IS *</that>
+    <template><srai>SHOW</srai></template>
+</category>
+<category>
+    <pattern>LIST ALL</pattern><that>* WHO IS *</that>
+    <template><srai>SHOW</srai></template>
+</category>
+<category>
+    <pattern>SHOW</pattern>
+    <that>* WHO IS *</that>
+    <template>
+        /{corpus list-profs-domain} The above is a list of all professors. Among them, 
+        <srai>PROFESSOR INTEREST</srai>
+    </template>
+</category>
+<category>
+    <pattern>*</pattern>
+    <that>* WHO IS *</that>
+    <template>
+        <srai>PROFESSOR SELECTED <star/></srai>
+    </template>
+</category>
+<category>
+    <pattern>PROFESSOR SELECTED *</pattern>
+    <template>
+        <think>
+            <set name="prof_selected">yes</set>
+            <set name="prof"><star/></set>
+        </think>
+        /{corpus professor <star/>}
+    </template>
+</category>
+<category>
+    <pattern>TRY PROFESSOR AGAIN</pattern>
+    <template>
+        No such professor exists in my database. Again, <srai>PROFESSOR INTEREST</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>EVAL INTEREST</pattern>
+    <template>
+        <condition name="domain_selected" value="yes">
+            <condition name="prof_selected" value="yes">
+                /{corpus done} This is a course you can look up!
+            </condition>
+            <condition name="prof_selected" value="no">
+                /{corpus list-courses-domain} This is a possible list of 
+                electives you might consider.
+            </condition>
+        </condition>
+        <condition name="domain_selected" value="no">
+            <condition name="prof_selected" value="yes">
+                /{corpus list-courses-prof} These are electives you might 
+                consider looking up.
+            </condition>
+            <condition name="prof_selected" value="no">
+                /{corpus list-all} These are all the courses offered by the 
+                institute. Since you have no preferences, this is all i can do.
+            </condition>
+        </condition>
+    </template>
+</category>
+
+<!-- ALL YES AND NO STUFF -->
+<category>
+    <pattern>YES</pattern>
+    <that>* NEED HELP IN SELECTING ELECTIVES *</that>
+    <template>
+        <srai>CHOOSE ELECTIVES</srai>
+    </template>
+</category>
+<category>
+    <pattern>NO</pattern>
+    <that>* NEED HELP IN SELECTING ELECTIVES *</that>
+    <template>
+        Oh! that's bad. I thought i could help you.
+    </template>
+</category>
+<category>
+    <pattern>*</pattern>
+    <that>* NEED HELP IN SELECTING ELECTIVES *</that>
+    <template>
+        I can't decide whether it's a yes or no. Again, do 
+        you need help in selecting electives? (yes/no)
+    </template>
+</category>
+<category>
+    <pattern>YES</pattern>
+    <that>* WHAT DOMAIN IS IT *</that>
+    <template>
+        So, what domain is it? (domain/no/show all)
+    </template>
+</category>
+<category>
+    <pattern>NO</pattern>
+    <that>* WHAT DOMAIN IS IT *</that>
+    <template>
+        <think><set name="domain_selected">no</set></think>
+        <srai>PROFESSOR INTEREST</srai>
+    </template>
+</category>
+<category>
+    <pattern>*</pattern>
+    <that>* WHAT DOMAIN IS IT *</that>
+    <template>
+        I don't understand, what domain is it again? (domain/no/show all)
+    </template>
+</category>
+<category>
+    <pattern>YES</pattern>
+    <that>* WHO IS *</that>
+    <template>
+        So, who is it? (prof name/no/show all)
+    </template>
+</category>
+<category>
+    <pattern>NO</pattern>
+    <that>* WHO IS *</that>
+    <template>
+        <think><set name="prof_selected">no</set></think>
+        <srai>EVAL INTEREST</srai>
+    </template>
+</category>
+
+<!-- Available Streams -->
+<category><pattern>CS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
+<category><pattern>IT</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
+<category><pattern>CSE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
+<category><pattern>COMPUTER SCIENCE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED COMPUTER SCIENCE</srai></template></category>
+<category><pattern>ECO</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
+<category><pattern>FINANCE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
+<category><pattern>ECONOMICS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED ECONOMICS</srai></template></category>
+<category><pattern>MECH</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MECHANICAL</srai></template></category>
+<category><pattern>MECHANICAL</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MECHANICAL</srai></template></category>
+<category><pattern>EEE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ECE</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ENI</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ENI</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ELECTRICAL</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>ELECTRONICSno</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>PHOENIX</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHOENIX</srai></template></category>
+<category><pattern>BIO</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED BIOLOGY</srai></template></category>
+<category><pattern>BIOLOGY</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED BIOLOGY</srai></template></category>
+<category><pattern>PHARMA</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHARMACY</srai></template></category>
+<category><pattern>PHARMACY</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHARMACY</srai></template></category>
+<category><pattern>PHY</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHYSICS</srai></template></category>
+<category><pattern>PHYSICS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED PHYSICS</srai></template></category>
+<category><pattern>MATH</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
+<category><pattern>MATHS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
+<category><pattern>MATHEMATICS</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED MATHS</srai></template></category>
+<category><pattern>HUMANITIES</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED HUMANITIES</srai></template></category>
+<category><pattern>CIVIL</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED CIVIL</srai></template></category>
+<category><pattern>CHEMICAL</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED CHEMICAL</srai></template></category>
+<category><pattern>CHEM</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED CHEMICAL</srai></template></category>
+<category><pattern>CHEMISTRY</pattern><that>* WHAT DOMAIN IS IT *</that><template><srai>DOMAIN SELECTED CHEMICAL</srai></template></category>
+
+</aiml>

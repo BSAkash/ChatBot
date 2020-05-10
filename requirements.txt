@@ -1,1 +1,2 @@
-aiml
+python-aiml==0.9.3
+Flask==1.1.1

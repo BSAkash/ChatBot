@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+<meta name="language" content="en"/>
+
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <random>
+                <li>Hello Friend, It's good to see you!</li>
+                <li>Good to see you back!</li>
+                <li>Let's talk!</li>
+                <li>Hola, amigo!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>HELLO *</pattern>
+        <template><srai>HELLO</srai></template>
+    </category>
+    <category>
+        <pattern>HI</pattern>
+        <template><srai>HELLO</srai></template>
+    </category>
+    <category>
+        <pattern>HEY</pattern>
+        <template><srai>HELLO!!! Whats up?</srai></template>
+    </category>
+    <!-- <category>
+        <pattern>HI *</pattern>
+        <template><srai>HELLO</srai></template>
+    </category> -->
+    <category>
+      <pattern>I LIKE *</pattern>
+      <template>
+            I too like <star/>.
+      </template>
+    </category>
+    <category>
+        <pattern>A * IS A *</pattern>
+        <template>
+            Yes, A <star index="1"/> is a <star index="2"/>
+        </template>
+    </category>
+    <category>
+        <pattern>I AM FINE</pattern>
+        <template>
+            <random>
+                <li>Good to know that!</li>
+                <li>I see you are doing well!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>I AM * GOOD</pattern>
+        <template><srai>I AM FINE</srai></template>
+    </category>
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template>
+            <random>
+            <li>Hello <set name = "username"><star/></set>, Good to see you</li>
+            <li>Hello <set name = "username"><star/></set>, I see you are doing well!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>_ MY NAME IS *</pattern>
+        <template>
+            <srai>MY NAME IS <star index="2"/></srai>
+        </template>
+    </category>
+    <category>
+        <pattern>WHO AM I</pattern>
+        <template>
+            You are <get name = "username"/>!
+        </template>
+    </category>
+    <category>
+        <pattern>HELP</pattern>
+        <template>
+            I can:  <br />
+            1) Act as a dictionary if you ask me to define something,<br />
+            2) Motivate you with a daily quote,<br />
+            3) (my primary purpose)<br />
+            <srai>WHAT CAN YOU DO</srai>
+        </template>
+    </category>
+    <category><pattern>_ HELP</pattern><template><srai>HELP</srai></template></category>
+    <category><pattern>HELP *</pattern><template><srai>HELP</srai></template></category>
+    <category><pattern>_ HELP *</pattern><template><srai>HELP</srai></template></category>
+    <category>
+        <pattern>BYE</pattern>
+        <template>
+            <random>
+                <li>Hastalavista!</li>
+                <li>Bye Bye!</li>
+                <li>Goodbye!</li>
+                <li>Have a good day!</li>
+                <li>Until next time!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+    <pattern>BYE *</pattern>
+       <template><srai>BYE</srai></template>
+    </category>
+    <category>
+        <pattern>* BYE</pattern>
+        <template><srai>BYE</srai></template>
+    </category>
+    <category>
+        <pattern>YES</pattern>
+        <template>
+            Ok! I see you agree to something.
+        </template>
+    </category>
+    <category>
+        <pattern>NO</pattern>
+        <template>
+            I see you don't agree to something.
+        </template>
+    </category>
+    <category>
+        <pattern>THANKS</pattern>
+        <template>
+            <random>
+                <li>you're welcome</li>
+                <li>thank you for using my services</li>
+            </random>
+        </template>
+    </category>
+    <category><pattern>THANK YOU</pattern><template><srai>THANKS</srai></template></category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            I don't understand you! I am mainly programmed to assist you in your course selection. Type 'help' to know more.
+        </template>
+    </category>
+
+</aiml>

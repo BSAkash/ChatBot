@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import conversation
+# import traceback
 
 
 app = Flask(__name__)
@@ -26,7 +27,7 @@ def api():
             )
     except Exception as e:
         return jsonify(
-            response="Error: " + str(e)
+            response="Error: " + str(e) # + '\n>> Traceback <<\n' + str(traceback.print_exc())
         )
 
 

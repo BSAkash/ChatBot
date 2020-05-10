@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+<meta name="language" content="en"/>
+
+    <category>
+        <pattern>DEFINE *</pattern>
+        <template>
+            /{define <star/>}
+        </template>
+    </category>
+    <category>
+        <pattern>what does * mean</pattern>
+        <template>
+            <srai>DEFINE <star/></srai>
+        </template>
+    </category>
+    <category>
+        <pattern>meaning of *</pattern>
+        <template>
+            <srai>DEFINE <star/></srai>
+        </template>
+    </category>
+    <category>
+        <pattern>* meaning of *</pattern>
+        <template>
+            <srai>DEFINE <star index="2"/></srai>
+        </template>
+    </category>
+    <category>
+        <pattern>* definition of *</pattern>
+        <template>
+            <srai>DEFINE <star index="2"/></srai>
+        </template>
+    </category>
+    <category>
+        <pattern>* definition</pattern>
+        <template>
+            <srai>DEFINE <star/></srai>
+        </template>
+    </category>
+
+</aiml>
