@@ -1,12 +1,12 @@
 <!--
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** RikilG, AiBot-Backend, twitter_handle, email
+*** RikilG, AiBot, twitter_handle, email
 -->
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <!-- <a href="https://github.com/RikilG/AiBot-Backend">
+  <!-- <a href="https://github.com/RikilG/AiBot">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
@@ -76,8 +76,8 @@ This is an example list of dependencies present/used in the project
  
 1. Clone the repo
 ```sh
-git clone https://github.com/RikilG/AiBot-Backend.git
-cd AiBot-Backend
+git clone https://github.com/RikilG/AiBot.git
+cd AiBot
 ```
 2. Install required python packages
 ```sh
@@ -125,7 +125,7 @@ rikilg.pythonanywhere.com/api/
 
 Folder structure:
 ```sh
-AiBot-Backend
+AiBot
   ├── AndroidApp  # A Basic android app to talk to bot on server
   ├── FlutterApp  # A Better flutter app to talk to bot on server
   ├── Backend/src # Source code of the bot deployed on server
@@ -157,7 +157,7 @@ AiBot-Backend
  - Naga Sai Bharath - 2017A7PS0209H
  - Akash Bonagiri - 2017AAPS0455H
 
-Project Link: [https://github.com/RikilG/AiBot-Backend](https://github.com/RikilG/AiBot-Backend)
+Project Link: [https://github.com/RikilG/AiBot](https://github.com/RikilG/AiBot)
 
 
 ## References
