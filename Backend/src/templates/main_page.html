@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My scratchboard page</title>
+        <link rel="stylesheet" href="main_page.css" />
+    </head>
+
+    <body>
+
+        <div class="heading">Welcome to AiBot</div>
+        <div class="para">
+            <div class="para-header">Bot Information</div>
+            <div class="para-content">
+                This chatbot can assist you in selecting your
+                electives for the upcomming semester. It also has 
+                some more features! type 'help' in the box below 
+                to get started.
+            </div>
+        </div>
+
+        <div class="para">
+            <div class="para-header">REST Api</div>
+            <div class="para-content">
+                This Bot is deployed using pythonanywhere.com's server.
+                <ul>
+                    <li>Bot queries can be sent to /api/</li>
+                    <li>You can test server connectivity at /test</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="para">
+            <div class="para-header">Source code</div>
+            <div class="para-content">
+                The complete source code, query example and database
+                for this bot can be found 
+                <a href="https://www.github.com/RikilG/AiBot">here</a>
+            </div>
+        </div>
+
+        <div>
+            <form action="." method="POST">
+                <textarea name="contents" placeholder="Enter a comment"></textarea>
+                <input type="submit" value="Post comment">
+            </form>
+        </div>
+        <script src="main_page.js"></script>
+    </body>
+</html>
