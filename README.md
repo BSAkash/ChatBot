@@ -52,7 +52,7 @@ file database using sqlite. The bot is designed to interact with other online se
 The front-end for this bot is an android app(flutter app added later) which interacts with a 
 backend (a flask application which can be hosted on any cloud platform) using RESTful services.
 
-Project hosted [here](https://rikilg.pythonanywhere.com)
+You can interact with the bot hosted [here](https://rikilg.pythonanywhere.com)
 
 
 ## Getting Started
@@ -128,7 +128,7 @@ Folder structure:
 AiBot-Backend
   ├── AndroidApp  # A Basic android app to talk to bot on server
   ├── FlutterApp  # A Better flutter app to talk to bot on server
-  ├── Backend     # Source code of the bot deployed on server
+  ├── Backend/src # Source code of the bot deployed on server
   │   ├── aiml    # holds all aiml files which serve as knowledgebase of the bot
   │   │   ├── conversation.aiml
   │   │   ├── dictionary.aiml
