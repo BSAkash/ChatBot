@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My scratchboard page</title>
+    <link rel="stylesheet" href="main_page.css" />
+</head>
+<body>
+    <div class="panel heading">Welcome to AiBot</div>
+
+    <div class="flex-horizontal">
+        <div class="panel info-panel">
+            <div class="para">
+                <div class="para-header">Bot Information</div>
+                <div class="para-content">
+                    This chatbot can assist you in selecting your
+                    electives for the upcomming semester. It also has 
+                    some more features! type 'help' in the box below 
+                    to get started.
+                </div>
+            </div>
+            <div class="para">
+                <div class="para-header">REST Api</div>
+                <div class="para-content">
+                    This Bot is deployed using <a href="https://www.pythonanywhere.com">pythonanywhere</a> server.
+                    <ul>
+                        <li>Bot queries can be sent to /api/</li>
+                        <li>You can test server connectivity at /test</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="para">
+                <div class="para-header">Source code</div>
+                <div class="para-content">
+                    The complete source code, query example and database
+                    for this bot can be found on 
+                    <a href="https://www.github.com/RikilG/AiBot">Github</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel chat-panel">
+            <div class="flex-vertical">
+                <div class="chat-item bot-side" id="bubble-template">
+                    <div class="chat-bubble">
+                        Type 'help' to get started
+                    </div>
+                </div>
+            </div>
+            <div class="bot-controls">
+                <input type="text" class="textbox" />
+                <div class="button">Send</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main_page.js"></script>
+</body>
+</html>

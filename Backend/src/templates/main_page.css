@@ -1,0 +1,141 @@
+body {
+    min-height: 100vh;
+    padding: 1.5vh 2.5vw;
+    color: rgb(0, 0, 0);
+    background-color: rgb(23, 148, 162);
+    background-image: linear-gradient(141deg, rgb(55, 91, 102) 0%, rgb(23, 148, 162) 51%, rgb(17, 121, 160) 75%);
+}
+
+.heading {
+    padding: 0.75em;
+    padding-left: 2em;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(59, 29, 0);
+    text-decoration: underline;
+}
+
+.flex-horizontal {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+
+.panel {
+    background-color: rgba(83, 157, 190, 0.37);
+    margin: 1%;
+    border-radius: 1em;
+}
+
+.info-panel {
+    width: 23%;
+}
+
+.chat-panel {
+    position: relative;
+    width: 73%;
+}
+
+.para-header {
+    margin: 0.75vh 2vw;
+    color: rgb(99, 48, 0);
+    font-size: 1.7em;
+}
+
+.para-content {
+    margin: 0.1vh 4vw;
+    margin-bottom: 2em;
+}
+
+.flex-vertical {
+    display: flex;
+    flex-flow: column;
+    padding: 0.25em 1em;
+    margin-bottom: 3.5em;
+}
+
+.chat-item {
+    display: flex;
+    margin: 0.25em;
+}
+
+.user-side {
+    justify-content: flex-end;
+}
+
+.bot-side {
+    justify-content: flex-start;
+}
+
+.chat-bubble {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    font-size: large;
+    background: rgb(75, 199, 75);
+}
+
+.bot-controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+}
+
+.textbox {
+    flex-grow: 1;
+    font-size: large;
+    margin: 0.25em 1em;
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+}
+
+.button {
+    display: inline;
+    margin: 0.25em 1em;
+    padding: 0.25em 1em;
+    margin-left: 0;
+    font-size: 1.4em;
+    border-radius: 0.5em;
+    transition: 0.4s;
+    cursor: pointer;
+    justify-content: center;
+    background-image: linear-gradient(0deg, rgb(127, 196, 0), rgb(79, 214, 0));
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+input:focus,
+a:focus {
+    outline: none;
+}
+
+/* On screens that are less than 600px wide, make the horizontal flex to vertical*/
+@media screen and (max-width: 1000px) {
+    .flex-horizontal {
+        flex-flow: column;
+    }
+    .info-panel {
+        width: 100%;
+    }
+    .chat-panel {
+        width: 100%;
+    }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+/* @media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+} */
+
+/* On smaller screens, where height is less than 450px, change the style 
+of the sidenav (less padding and a smaller font size) */
+/* @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+} */
