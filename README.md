@@ -157,7 +157,7 @@ AiBot
  - Naga Sai Bharath - 2017A7PS0209H
  - Akash Bonagiri - 2017AAPS0455H
 
-Project Link: [https://github.com/RikilG/AiBot](https://github.com/RikilG/AiBot)
+Project Link: [https://github.com/BSAkash/ChatBot](https://github.com/BSAkash/ChatBot)
 
 
 ## References
