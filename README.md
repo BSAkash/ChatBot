@@ -1,12 +1,12 @@
 <!--
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** RikilG, AiBot, twitter_handle, email
+*** BSAkash, AiBot, twitter_handle, email
 -->
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <!-- <a href="https://github.com/RikilG/AiBot">
+  <!-- <a href="https://github.com/BSAkash/ChatBot">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
@@ -76,7 +76,7 @@ This is an example list of dependencies present/used in the project
  
 1. Clone the repo
 ```sh
-git clone https://github.com/RikilG/AiBot.git
+git clone https://github.com/BSAkash/ChatBot.git
 cd AiBot
 ```
 2. Install required python packages
